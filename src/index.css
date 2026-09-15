@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, .font-serif-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* =========================================================
+   KASHMIR CENTRIC THEME SYSTEM (Chinar, Dal Lake, Gulmarg, Pahalgam)
+   ========================================================= */
+
+/* Default Theme: 🍁 Chinar Autumn (Warm Terracotta Rust, Saffron Amber & Cedar Wood) */
+:root,
+[data-kashmir-theme="chinar"] {
+  --theme-primary: #c2410c; /* Chinar Rust */
+  --theme-primary-dark: #7c2d12; /* Deep Chinar Amber */
+  --theme-primary-light: #fff7ed; /* Soft Chinar Cream */
+  --theme-primary-border: #fed7aa; /* Warm Amber Border */
+  --theme-primary-ring: rgba(194, 65, 12, 0.25);
+  --theme-accent: #d97706; /* Kashmiri Saffron */
+  --theme-accent-light: #fef3c7;
+  --theme-hero-bg: #2a1205;
+  --theme-hero-overlay-from: rgba(42, 18, 5, 0.75);
+  --theme-hero-overlay-to: rgba(124, 45, 18, 0.85);
+  --theme-selection-bg: #fed7aa;
+  --theme-selection-text: #7c2d12;
+}
+
+/* 🛶 Dal Lake Theme (Serene Emerald Waters, Cedar Houseboats & Floating Lotus) */
+[data-kashmir-theme="dal"] {
+  --theme-primary: #047857; /* Dal Emerald */
+  --theme-primary-dark: #064e3b; /* Deep Alpine Water */
+  --theme-primary-light: #ecfdf5; /* Gentle Mist Cream */
+  --theme-primary-border: #a7f3d0; /* Emerald Water Border */
+  --theme-primary-ring: rgba(4, 120, 87, 0.25);
+  --theme-accent: #b45309; /* Cedar Houseboat Wood */
+  --theme-accent-light: #fef3c7;
+  --theme-hero-bg: #064e3b;
+  --theme-hero-overlay-from: rgba(6, 78, 59, 0.75);
+  --theme-hero-overlay-to: rgba(2, 44, 34, 0.85);
+  --theme-selection-bg: #a7f3d0;
+  --theme-selection-text: #064e3b;
+}
+
+/* 🚠 Gulmarg Gondola Theme (Alpine Evergreen Pine, Apharwat Snow & Cable Car Gold) */
+[data-kashmir-theme="gulmarg"] {
+  --theme-primary: #15803d; /* Gulmarg Alpine Pine */
+  --theme-primary-dark: #14532d; /* Dense Deodar Wood */
+  --theme-primary-light: #f0fdf4; /* Crisp Mountain Air Tint */
+  --theme-primary-border: #bbf7d0; /* Pine Needles Border */
+  --theme-primary-ring: rgba(21, 128, 61, 0.25);
+  --theme-accent: #ca8a04; /* Gondola Gold */
+  --theme-accent-light: #fef9c3;
+  --theme-hero-bg: #052e16;
+  --theme-hero-overlay-from: rgba(20, 83, 45, 0.75);
+  --theme-hero-overlay-to: rgba(5, 46, 22, 0.85);
+  --theme-selection-bg: #bbf7d0;
+  --theme-selection-text: #14532d;
+}
+
+/* 🌲 Pahalgam Lidder Theme (Glacier Lidder River Turquoise & Shepherds Valley) */
+[data-kashmir-theme="pahalgam"] {
+  --theme-primary: #0e7490; /* Glacier Turquoise */
+  --theme-primary-dark: #155e75; /* Deep River Azure */
+  --theme-primary-light: #ecfeff; /* Glacial Spring Tint */
+  --theme-primary-border: #a5f3fc; /* Lidder Spray Border */
+  --theme-primary-ring: rgba(14, 116, 144, 0.25);
+  --theme-accent: #15803d; /* Betaab Valley Fir */
+  --theme-accent-light: #f0fdf4;
+  --theme-hero-bg: #083344;
+  --theme-hero-overlay-from: rgba(22, 78, 99, 0.75);
+  --theme-hero-overlay-to: rgba(8, 51, 68, 0.85);
+  --theme-selection-bg: #a5f3fc;
+  --theme-selection-text: #155e75;
+}
+
+/* Map Tailwind emerald classes dynamically to Kashmir theme variables */
+@theme {
+  --color-emerald-50: var(--theme-primary-light);
+  --color-emerald-100: var(--theme-primary-border);
+  --color-emerald-200: var(--theme-primary-border);
+  --color-emerald-300: var(--theme-primary-border);
+  --color-emerald-400: var(--theme-accent);
+  --color-emerald-500: var(--theme-primary);
+  --color-emerald-600: var(--theme-primary);
+  --color-emerald-700: var(--theme-primary-dark);
+  --color-emerald-800: var(--theme-primary-dark);
+  --color-emerald-900: var(--theme-primary-dark);
+  --color-emerald-950: var(--theme-hero-bg);
+}
+
+::selection {
+  background-color: var(--theme-selection-bg);
+  color: var(--theme-selection-text);
+}
+
+/* Kashmir Theme Dynamic Helpers */
+.kashmir-bg-primary {
+  background-color: var(--theme-primary) !important;
+}
+.kashmir-bg-primary-dark {
+  background-color: var(--theme-primary-dark) !important;
+}
+.kashmir-bg-light {
+  background-color: var(--theme-primary-light) !important;
+}
+.kashmir-text-primary {
+  color: var(--theme-primary) !important;
+}
+.kashmir-text-dark {
+  color: var(--theme-primary-dark) !important;
+}
+.kashmir-border-primary {
+  border-color: var(--theme-primary) !important;
+}
+.kashmir-border-light {
+  border-color: var(--theme-primary-border) !important;
+}
+.kashmir-btn-primary {
+  background-color: var(--theme-primary) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease-in-out;
+}
+.kashmir-btn-primary:hover {
+  background-color: var(--theme-primary-dark) !important;
+}
+.kashmir-badge {
+  background-color: var(--theme-primary-light) !important;
+  color: var(--theme-primary-dark) !important;
+  border: 1px solid var(--theme-primary-border) !important;
+}
+.kashmir-glow {
+  box-shadow: 0 10px 25px -5px var(--theme-primary-ring);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary);
+}
+
+
