@@ -3,7 +3,7 @@ import { Compass, Mail, Phone, MapPin, Send, Check, ShieldCheck, Award, MessageS
 
 interface FooterProps {
   onNavigateTo: (sectionId: string) => void;
-  onSelectRegion: (region: string) => void;
+  onSelectRegion?: (region: string) => void;
   onOpenAdmin?: () => void;
 }
 

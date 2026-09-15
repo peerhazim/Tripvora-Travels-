@@ -15,10 +15,24 @@ export default defineConfig(() => {
         name: 'generate-github-pages-404',
         closeBundle() {
           const distDir = path.resolve(__dirname, 'dist');
+          const docsDir = path.resolve(__dirname, 'docs');
           const indexPath = path.join(distDir, 'index.html');
           const notFoundPath = path.join(distDir, '404.html');
+          const noJekyllDist = path.join(distDir, '.nojekyll');
+
           if (fs.existsSync(indexPath)) {
             fs.copyFileSync(indexPath, notFoundPath);
+          }
+          fs.writeFileSync(noJekyllDist, '');
+
+          // Also mirror to /docs directory for standard GitHub Pages "Deploy from branch -> /docs" mode
+          try {
+            if (!fs.existsSync(docsDir)) {
+              fs.mkdirSync(docsDir, { recursive: true });
+            }
+            fs.cpSync(distDir, docsDir, { recursive: true, force: true });
+          } catch (err) {
+            console.error('Error copying build to docs folder:', err);
           }
         },
       },

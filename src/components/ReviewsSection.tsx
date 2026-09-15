@@ -72,7 +72,9 @@ export const ReviewsSection: React.FC = () => {
                 <div className="min-w-0">
                   <div className="flex items-center space-x-1.5">
                     <span className="text-xs font-bold text-stone-900 truncate">{review.author}</span>
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" title="Verified Traveler" />
+                    <span title="Verified Traveler" className="inline-flex items-center">
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                    </span>
                   </div>
                   <div className="text-[11px] text-stone-500 truncate">{review.location}</div>
                 </div>

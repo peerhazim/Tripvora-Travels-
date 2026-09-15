@@ -18,9 +18,10 @@ import {
 
 interface FloatingActionMenuProps {
   onOpenPlanner?: () => void;
+  onOpenInquiry?: () => void;
 }
 
-export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPlanner }) => {
+export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPlanner, onOpenInquiry }) => {
   // Active window state
   const [activeTab, setActiveTab] = useState<'form' | 'whatsapp' | 'instagram' | 'license' | null>(null);
   

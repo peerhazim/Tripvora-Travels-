@@ -8,6 +8,7 @@ import { formatPrice } from '../utils/format';
 
 interface TourDetailModalProps {
   tour: Tour | null;
+  isOpen?: boolean;
   onClose: () => void;
   currentCurrency: Currency;
   isWishlisted: boolean;
@@ -17,6 +18,7 @@ interface TourDetailModalProps {
 
 export const TourDetailModal: React.FC<TourDetailModalProps> = ({
   tour,
+  isOpen,
   onClose,
   currentCurrency,
   isWishlisted,
@@ -246,7 +248,9 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({
                           </span>
                           <div>
                             <span className="text-xs font-bold text-stone-900 block sm:inline">{dayItem.title}</span>
-                            <span className="text-[11px] text-stone-500 sm:ml-2">({dayItem.location})</span>
+                            {dayItem.activityHighlight && (
+                              <span className="text-[11px] text-stone-500 sm:ml-2">({dayItem.activityHighlight})</span>
+                            )}
                           </div>
                         </div>
                         <ChevronRight className={`w-4 h-4 text-stone-400 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
@@ -256,10 +260,12 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({
                         <div className="p-4 bg-white border-t border-stone-200 space-y-3 text-xs text-stone-700">
                           <p className="leading-relaxed">{dayItem.description}</p>
                           <div className="flex flex-wrap gap-4 pt-2 border-t border-stone-100 text-[11px] text-stone-500">
-                            <span className="flex items-center space-x-1">
-                              <Hotel className="w-3.5 h-3.5 text-stone-400" />
-                              <span>{dayItem.stay}</span>
-                            </span>
+                            {dayItem.lodging && (
+                              <span className="flex items-center space-x-1">
+                                <Hotel className="w-3.5 h-3.5 text-stone-400" />
+                                <span>{dayItem.lodging}</span>
+                              </span>
+                            )}
                             <span className="flex items-center space-x-1">
                               <Utensils className="w-3.5 h-3.5 text-stone-400" />
                               <span>{dayItem.meals}</span>
@@ -282,7 +288,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({
                   <span>Package Inclusions</span>
                 </h4>
                 <ul className="space-y-2 text-xs text-emerald-900">
-                  {tour.inclusions.map((inc, idx) => (
+                  {tour.included.map((inc, idx) => (
                     <li key={idx} className="flex items-start space-x-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
                       <span>{inc}</span>
@@ -297,7 +303,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({
                   <span>Package Exclusions</span>
                 </h4>
                 <ul className="space-y-2 text-xs text-rose-900">
-                  {tour.exclusions.map((exc, idx) => (
+                  {tour.notIncluded.map((exc, idx) => (
                     <li key={idx} className="flex items-start space-x-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 flex-shrink-0" />
                       <span>{exc}</span>

@@ -14,7 +14,11 @@ interface AdminPortalModalProps {
 export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onClose }) => {
   // Authentication state (persisted in session)
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    return !!sessionStorage.getItem('tripvora_admin_token');
+    try {
+      return !!sessionStorage.getItem('tripvora_admin_token');
+    } catch {
+      return false;
+    }
   });
   const [adminEmail, setAdminEmail] = useState('peerhazim98@gmail.com');
   const [adminPassword, setAdminPassword] = useState('tripvora2026');
@@ -77,7 +81,11 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
       });
       const data = await res.json();
       if (res.ok && data.success) {
-        sessionStorage.setItem('tripvora_admin_token', data.token);
+        try {
+          sessionStorage.setItem('tripvora_admin_token', data.token);
+        } catch {
+          // ignore
+        }
         setIsAuthenticated(true);
         showToast('Welcome Hazim! Admin session authenticated.');
         fetchQueries();
@@ -92,7 +100,11 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('tripvora_admin_token');
+    try {
+      sessionStorage.removeItem('tripvora_admin_token');
+    } catch {
+      // ignore
+    }
     setIsAuthenticated(false);
   };
 

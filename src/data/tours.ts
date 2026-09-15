@@ -25,9 +25,9 @@ export const TOURS_DATA: Tour[] = [
     image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop',
-      '/images/gulmarg-gondola-cable-car.jpg',
-      '/images/betaab-valley-pahalgam.jpg',
-      '/images/char-chinar-dal-lake.jpg',
+      './images/gulmarg-gondola-cable-car.jpg',
+      './images/betaab-valley-pahalgam.jpg',
+      './images/char-chinar-dal-lake.jpg',
     ],
     overview: 'Immerse yourself in the timeless magic of the Kashmir Valley with TripVora Travels. Cruise the tranquil waters of Dal Lake on a handcrafted cedar Shikara, stay in a premium heritage houseboat, take the world-famous Gulmarg Gondola to snow-clad Apharwat Peak, and stroll through the pine-scented meadows of Pahalgam and Betaab Valley.',
     highlights: [
@@ -124,11 +124,11 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Leisurely',
     style: 'Family & Honeymoon',
     badge: 'TripVora Classic Special',
-    image: '/images/betaab-valley-pahalgam.jpg',
+    image: './images/betaab-valley-pahalgam.jpg',
     gallery: [
-      '/images/betaab-valley-pahalgam.jpg',
-      '/images/char-chinar-dal-lake.jpg',
-      '/images/gulmarg-gondola-cable-car.jpg',
+      './images/betaab-valley-pahalgam.jpg',
+      './images/char-chinar-dal-lake.jpg',
+      './images/gulmarg-gondola-cable-car.jpg',
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop',
     ],
     overview: 'TripVora’s most popular, high-value 4 Nights / 5 Days travel itinerary. Designed for budget-conscious families, honeymooners, and student groups seeking complete Kashmir highlights: Dal Lake deluxe houseboat, 1-hour Shikara ride, Gulmarg snow point, Pahalgam Lidder valley, and Mughal Gardens.',
@@ -215,12 +215,12 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Moderate',
     style: 'Adventure & High Passes',
     badge: 'Snow & Ski Special',
-    image: '/images/gulmarg-gondola-cable-car.jpg', // Genuine Gulmarg Gondola cable car gliding over snow
+    image: './images/gulmarg-gondola-cable-car.jpg', // Genuine Gulmarg Gondola cable car gliding over snow
     gallery: [
-      '/images/gulmarg-gondola-cable-car.jpg', // Gulmarg Gondola cable car over snowy peaks
-      '/images/gulmarg-gondola-snow.jpg', // Apharwat peak snow & Gondola ride
+      './images/gulmarg-gondola-cable-car.jpg', // Gulmarg Gondola cable car over snowy peaks
+      './images/gulmarg-gondola-snow.jpg', // Apharwat peak snow & Gondola ride
       'https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=1200&auto=format&fit=crop', // Gulmarg snow meadows
-      '/images/char-chinar-dal-lake.jpg', // Char Chinar at Dal Lake
+      './images/char-chinar-dal-lake.jpg', // Char Chinar at Dal Lake
     ],
     overview: 'Curated for snow chasers and winter vacationers. Gulmarg transforms into Asia’s premier skiing wonderland with meters of fresh powdery snow. This package includes snow chains-fitted 4x4 transport, overnight stay amidst snowy pines in Gulmarg, Gondola Phase 2 snow access, and heated houseboat rooms with traditional Kashmiri Bukhari fireplaces.',
     highlights: [
@@ -399,10 +399,10 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Leisurely',
     style: 'Houseboats & Shikara',
     badge: 'Spring Blossom Special',
-    image: '/images/kashmir-tulip-garden.jpg', // Authentic Indira Gandhi Memorial Tulip Garden, Srinagar Kashmir
+    image: './images/kashmir-tulip-garden.jpg', // Authentic Indira Gandhi Memorial Tulip Garden, Srinagar Kashmir
     gallery: [
-      '/images/kashmir-tulip-garden.jpg', // Scenic Indira Gandhi Memorial Tulip Garden with Zabarwan mountain range
-      '/images/kashmir-tulip-garden-close.jpg', // Vibrant blooming tulip rows in Srinagar garden
+      './images/kashmir-tulip-garden.jpg', // Scenic Indira Gandhi Memorial Tulip Garden with Zabarwan mountain range
+      './images/kashmir-tulip-garden-close.jpg', // Vibrant blooming tulip rows in Srinagar garden
       'https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=1200&auto=format&fit=crop', // Close-up of blossoming spring tulips
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop', // Dal Lake Shikara in spring
     ],
@@ -488,11 +488,11 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Moderate',
     style: 'Spiritual & Pilgrimage',
     badge: 'Divine & Scenic',
-    image: '/images/mata-vaishno-devi-katra.jpg', // Authentic Bhavan Mata Vaishno Devi perched in the Trikuta mountains
+    image: './images/mata-vaishno-devi-katra.jpg', // Authentic Bhavan Mata Vaishno Devi perched in the Trikuta mountains
     gallery: [
-      '/images/mata-vaishno-devi-katra.jpg', // Bhavan Mata Vaishno Devi shrine
-      '/images/vaishno-devi-katra-temple.jpg', // Holy Vaishno Devi temple complex in Katra, J&K
-      '/images/mata-vaishno-devi-shrine-bhawan.jpg', // Grand Mata Vaishno Devi Bhawan
+      './images/mata-vaishno-devi-katra.jpg', // Bhavan Mata Vaishno Devi shrine
+      './images/vaishno-devi-katra-temple.jpg', // Holy Vaishno Devi temple complex in Katra, J&K
+      './images/mata-vaishno-devi-shrine-bhawan.jpg', // Grand Mata Vaishno Devi Bhawan
       'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=1200&auto=format&fit=crop', // Serene pine hill resort Patnitop
     ],
     overview: 'Combine sacred spiritual blessings with the pine-covered serenity of the Shivalik hills. This compact 4-day pilgrimage package pairs seamless Mata Vaishno Devi Darshan with an excursion to Patnitop hill resort, Sanasar Lake, and Nathatop viewpoints.',
@@ -679,11 +679,11 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Moderate',
     style: 'Spiritual & Pilgrimage',
     badge: 'Holy Yatra Special',
-    image: '/images/mata-vaishno-devi-shrine-bhawan.jpg', // Authentic Shri Mata Vaishno Devi Bhawan in Katra, Trikuta Mountains
+    image: './images/mata-vaishno-devi-shrine-bhawan.jpg', // Authentic Shri Mata Vaishno Devi Bhawan in Katra, Trikuta Mountains
     gallery: [
-      '/images/mata-vaishno-devi-shrine-bhawan.jpg', // Holy Shri Mata Vaishno Devi Bhawan sanctum
-      '/images/mata-vaishno-devi-mandir-katra.jpg', // Mata Vaishno Devi Mandir, Katra
-      '/images/mata-vaishno-devi-katra.jpg', // Sacred Bhavan Mata Vaishno Devi hill view
+      './images/mata-vaishno-devi-shrine-bhawan.jpg', // Holy Shri Mata Vaishno Devi Bhawan sanctum
+      './images/mata-vaishno-devi-mandir-katra.jpg', // Mata Vaishno Devi Mandir, Katra
+      './images/mata-vaishno-devi-katra.jpg', // Sacred Bhavan Mata Vaishno Devi hill view
       'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?q=80&w=1200&auto=format&fit=crop', // Sacred temple aarti illumination
     ],
     overview: 'Undertake the divine pilgrimage to the Holy Shrine of Shri Mata Vaishno Devi Ji nestled in the sacred Trikuta Mountains with seamless arrangements by TripVora Travels. From Jammu Tawi railway station or airport reception to comfortable Katra accommodations, VIP Darshan guidance, helicopter / battery car / pony booking support, and an excursion to the revered Shivkhori cave shrine.',
@@ -767,8 +767,8 @@ export const TOURS_DATA: Tour[] = [
     image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop', // Loving couple hugging closely amidst scenic winter wonderland
     gallery: [
       'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop', // Couple hugging warmly in romantic setting
-      '/images/char-chinar-dal-lake.jpg', // Romantic Char Chinar at Dal Lake
-      '/images/betaab-valley-pahalgam.jpg', // Scenic Betaab Valley Pahalgam
+      './images/char-chinar-dal-lake.jpg', // Romantic Char Chinar at Dal Lake
+      './images/betaab-valley-pahalgam.jpg', // Scenic Betaab Valley Pahalgam
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop', // Romantic sunset Shikara on Dal Lake
     ],
     overview: 'Crafted especially for couples beginning their journey together. TripVora Travels sets the stage with private flower-decorated suites, candlelit multi-course dinners on Dal Lake, secluded Shikara sunset rides, and romantic walks through snow meadows in Gulmarg and pine woods in Pahalgam.',
@@ -854,10 +854,10 @@ export const TOURS_DATA: Tour[] = [
     difficulty: 'Moderate',
     style: 'Spiritual & Pilgrimage',
     badge: 'Popular Combo',
-    image: '/images/mata-vaishno-devi-mandir-katra.jpg', // Authentic Mata Vaishno Devi Mandir in Katra
+    image: './images/mata-vaishno-devi-mandir-katra.jpg', // Authentic Mata Vaishno Devi Mandir in Katra
     gallery: [
-      '/images/mata-vaishno-devi-mandir-katra.jpg', // Mata Vaishno Devi Mandir sanctum & Katra base
-      '/images/mata-vaishno-devi-shrine-bhawan.jpg', // Shri Mata Vaishno Devi Bhawan in Trikuta Hills
+      './images/mata-vaishno-devi-mandir-katra.jpg', // Mata Vaishno Devi Mandir sanctum & Katra base
+      './images/mata-vaishno-devi-shrine-bhawan.jpg', // Shri Mata Vaishno Devi Bhawan in Trikuta Hills
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop', // Scenic Dal Lake Shikara
       'https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=1200&auto=format&fit=crop', // Gulmarg snow meadows
     ],

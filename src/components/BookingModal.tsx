@@ -9,17 +9,21 @@ import { formatPrice } from '../utils/format';
 interface BookingModalProps {
   tour: Tour;
   selectedDeparture?: DepartureDate;
+  departure?: DepartureDate;
   currentCurrency: Currency;
+  isOpen?: boolean;
   onClose: () => void;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
   tour,
   selectedDeparture,
+  departure,
   currentCurrency,
+  isOpen,
   onClose,
 }) => {
-  const defaultDep = selectedDeparture || (tour.departures.length > 0 ? tour.departures[0] : undefined);
+  const defaultDep = selectedDeparture || departure || (tour.departures.length > 0 ? tour.departures[0] : undefined);
   const [departureId, setDepartureId] = useState<string>(defaultDep ? defaultDep.id : '');
 
   // Party Count
@@ -172,7 +176,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         }`}
                       >
                         <div className="flex justify-between items-center">
-                          <span className="font-bold text-stone-900">{dep.season}</span>
+                          <span className="font-bold text-stone-900">{dep.status}</span>
                           <span className="text-emerald-700 font-semibold">{formatPrice(dep.priceUSD, currentCurrency)}</span>
                         </div>
                         <div className="text-[11px] text-stone-500 mt-0.5">
