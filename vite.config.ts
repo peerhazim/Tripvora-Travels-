@@ -1,11 +1,28 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    // Relative base ensures assets load properly on GitHub Pages (https://<user>.github.io/<repo>/)
+    base: './',
+    plugins: [
+      react(),
+      tailwindcss(),
+      {
+        name: 'generate-github-pages-404',
+        closeBundle() {
+          const distDir = path.resolve(__dirname, 'dist');
+          const indexPath = path.join(distDir, 'index.html');
+          const notFoundPath = path.join(distDir, '404.html');
+          if (fs.existsSync(indexPath)) {
+            fs.copyFileSync(indexPath, notFoundPath);
+          }
+        },
+      },
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
