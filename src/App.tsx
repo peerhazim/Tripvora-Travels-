@@ -16,6 +16,7 @@ import { QuickInquirySection } from './components/QuickInquirySection';
 import { Footer } from './components/Footer';
 import { ConsultationModal } from './components/ConsultationModal';
 import { AdminPortalModal } from './components/AdminPortalModal';
+import { LogoApprovalModal } from './components/LogoApprovalModal';
 import { FloatingActionMenu } from './components/FloatingActionMenu';
 import { AlertCircle, Phone, Sparkles, ShieldCheck, CheckCircle2, ArrowDown } from 'lucide-react';
 import { ThemeProvider, useKashmirTheme } from './context/ThemeContext';
@@ -57,6 +58,22 @@ function TripVoraContent() {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+
+  // Logo Review & Approval State
+  const [isLogoApproved, setIsLogoApproved] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('tripvora_logo_approved') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [isLogoReviewOpen, setIsLogoReviewOpen] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('tripvora_logo_approved') !== 'true';
+    } catch {
+      return true;
+    }
+  });
 
   // Smooth scroll handler
   const scrollToSection = (id: string) => {
@@ -148,6 +165,27 @@ function TripVoraContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 transition-colors duration-300">
+      {/* Interactive Top Notification Banner for New Logo Approval */}
+      {!isLogoApproved && (
+        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-950 text-white text-xs py-2 px-4 shadow-md border-b border-amber-400/50 sticky top-0 z-50">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 max-w-7xl mx-auto w-full">
+            <div className="flex items-center space-x-2">
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse flex-shrink-0" />
+              <span className="text-[11px] sm:text-xs">
+                <strong className="font-bold text-amber-300">New Brand Identity Created:</strong> A unique vector logo for TripVora Travels is ready for your review.
+              </span>
+            </div>
+            <button
+              onClick={() => setIsLogoReviewOpen(true)}
+              className="bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold px-3 py-1 rounded-full text-[11px] shadow-sm transition-all cursor-pointer flex items-center space-x-1 shrink-0"
+            >
+              <span>Review &amp; Approve Logo</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Top Navigation with Kashmir Theme & Admin Access */}
       <Navbar
         currentCurrency={currency}
@@ -157,6 +195,8 @@ function TripVoraContent() {
         onOpenPlanner={() => scrollToSection('custom-planner')}
         onOpenAdmin={() => setIsAdminOpen(true)}
         onNavigateTo={scrollToSection}
+        isLogoApproved={isLogoApproved}
+        onOpenLogoReview={() => setIsLogoReviewOpen(true)}
       />
 
       {/* Hero Section with Dual-Column Lead Capture Form */}
@@ -633,10 +673,34 @@ function TripVoraContent() {
       </main>
 
       {/* Footer */}
-      <Footer onNavigateTo={scrollToSection} onOpenAdmin={() => setIsAdminOpen(true)} />
+      <Footer 
+        onNavigateTo={scrollToSection} 
+        onOpenAdmin={() => setIsAdminOpen(true)}
+        isLogoApproved={isLogoApproved}
+        onOpenLogoReview={() => setIsLogoReviewOpen(true)}
+      />
 
       {/* Floating Action Menu for 1-Click WhatsApp & Call */}
       <FloatingActionMenu onOpenInquiry={() => scrollToSection('contact')} />
+
+      {/* Logo Approval & Brand Identity Modal */}
+      <LogoApprovalModal
+        isOpen={isLogoReviewOpen}
+        onClose={() => setIsLogoReviewOpen(false)}
+        isApproved={isLogoApproved}
+        onApprove={() => {
+          setIsLogoApproved(true);
+          try {
+            localStorage.setItem('tripvora_logo_approved', 'true');
+          } catch {}
+        }}
+        onRevoke={() => {
+          setIsLogoApproved(false);
+          try {
+            localStorage.removeItem('tripvora_logo_approved');
+          } catch {}
+        }}
+      />
 
       {/* Admin Portal Modal (Passcode Protected for Hazim) */}
       <AdminPortalModal

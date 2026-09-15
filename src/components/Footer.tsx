@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-import { Compass, Mail, Phone, MapPin, Send, Check, ShieldCheck, Award, MessageSquare, Lock } from 'lucide-react';
+import { Compass, Mail, Phone, MapPin, Send, Check, ShieldCheck, Award, MessageSquare, Lock, Sparkles } from 'lucide-react';
+import { TripVoraLogo } from './TripVoraLogo';
 
 interface FooterProps {
   onNavigateTo: (sectionId: string) => void;
   onSelectRegion?: (region: string) => void;
   onOpenAdmin?: () => void;
+  isLogoApproved?: boolean;
+  onOpenLogoReview?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigateTo, onSelectRegion, onOpenAdmin }) => {
+export const Footer: React.FC<FooterProps> = ({ 
+  onNavigateTo, 
+  onSelectRegion, 
+  onOpenAdmin,
+  isLogoApproved = false,
+  onOpenLogoReview
+}) => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -27,13 +36,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo, onSelectRegion, on
           {/* Brand & Manifesto (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center text-white font-bold shadow-md shadow-emerald-600/30">
-                <Compass className="w-5 h-5 text-white" />
-              </div>
+              {isLogoApproved ? (
+                <TripVoraLogo size="lg" highlighted={true} />
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center text-white font-bold shadow-md shadow-emerald-600/30">
+                  <Compass className="w-5 h-5 text-white" />
+                </div>
+              )}
               <div>
-                <span className="block font-serif-display text-2xl tracking-wider uppercase font-bold text-emerald-950">
-                  TRIPVORA <span className="text-emerald-600 font-normal">TRAVELS</span>
-                </span>
+                <div className="flex items-center space-x-2">
+                  <span className="block font-serif-display text-2xl tracking-wider uppercase font-bold text-emerald-950">
+                    TRIPVORA <span className="text-emerald-600 font-normal">TRAVELS</span>
+                  </span>
+                  {isLogoApproved && (
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-100 text-amber-900 border border-amber-300 uppercase tracking-tight">
+                      Official Mark
+                    </span>
+                  )}
+                </div>
                 <span className="block text-[10px] tracking-[0.2em] text-emerald-800 font-semibold uppercase -mt-1">
                   Kashmir • Ladakh • Vaishno Devi Katra
                 </span>
@@ -237,6 +257,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo, onSelectRegion, on
             <button onClick={() => onNavigateTo('contact')} className="hover:text-emerald-700 font-medium cursor-pointer">
               Direct Contact
             </button>
+            {onOpenLogoReview && (
+              <button onClick={onOpenLogoReview} className="hover:text-emerald-700 font-medium cursor-pointer flex items-center space-x-1">
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                <span>Brand Logo</span>
+              </button>
+            )}
             <button onClick={() => onOpenAdmin && onOpenAdmin()} className="hover:text-emerald-700 font-medium cursor-pointer">
               Admin Portal
             </button>

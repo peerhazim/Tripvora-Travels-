@@ -6,6 +6,7 @@ import {
 import { Currency } from '../types';
 import { CURRENCY_CONFIGS } from '../data/tours';
 import { ChinarLeafIcon } from './ChinarLeafIcon';
+import { TripVoraLogo } from './TripVoraLogo';
 import { KashmirThemeSelector } from './KashmirThemeSelector';
 import { useKashmirTheme } from '../context/ThemeContext';
 
@@ -17,6 +18,8 @@ interface NavbarProps {
   onOpenPlanner: () => void;
   onOpenAdmin: () => void;
   onNavigateTo: (sectionId: string) => void;
+  isLogoApproved?: boolean;
+  onOpenLogoReview?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -27,6 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenPlanner,
   onOpenAdmin,
   onNavigateTo,
+  isLogoApproved = false,
+  onOpenLogoReview,
 }) => {
   const { themeConfig, theme, setTheme, allThemes } = useKashmirTheme();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,31 +64,59 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between">
           
           {/* Brand Logo with Kashmir Theme Emblem */}
-          <button
-            id="nav-brand-logo-btn"
-            onClick={() => handleNavClick('hero')}
-            className="flex items-center space-x-2.5 text-left group focus:outline-none cursor-pointer"
-          >
-            <div 
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform"
-              style={{
-                background: `linear-gradient(135deg, var(--theme-primary), var(--theme-primary-dark))`
-              }}
+          <div className="flex items-center space-x-2">
+            <button
+              id="nav-brand-logo-btn"
+              onClick={() => handleNavClick('hero')}
+              className="flex items-center space-x-2.5 text-left group focus:outline-none cursor-pointer"
             >
-              <ChinarLeafIcon className="w-5 h-5 text-white drop-shadow-xs" />
-            </div>
-            <div>
-              <span className="block font-serif-display text-xl sm:text-2xl tracking-wider uppercase font-bold text-stone-900">
-                TRIPVORA <span className="font-normal" style={{ color: 'var(--theme-primary)' }}>TRAVELS</span>
-              </span>
-              <span 
-                className="block text-[9px] sm:text-[10px] tracking-[0.2em] font-semibold uppercase -mt-1"
-                style={{ color: 'var(--theme-primary-dark)' }}
+              {isLogoApproved ? (
+                <TripVoraLogo size="md" highlighted={true} />
+              ) : (
+                <div 
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform"
+                  style={{
+                    background: `linear-gradient(135deg, var(--theme-primary), var(--theme-primary-dark))`
+                  }}
+                >
+                  <ChinarLeafIcon className="w-5 h-5 text-white drop-shadow-xs" />
+                </div>
+              )}
+              <div>
+                <div className="flex items-center space-x-1.5">
+                  <span className="block font-serif-display text-xl sm:text-2xl tracking-wider uppercase font-bold text-stone-900">
+                    TRIPVORA <span className="font-normal" style={{ color: 'var(--theme-primary)' }}>TRAVELS</span>
+                  </span>
+                  {isLogoApproved && (
+                    <span className="hidden sm:inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                      ★ ORIGINAL
+                    </span>
+                  )}
+                </div>
+                <span 
+                  className="block text-[9px] sm:text-[10px] tracking-[0.2em] font-semibold uppercase -mt-1"
+                  style={{ color: 'var(--theme-primary-dark)' }}
+                >
+                  Kashmir • Ladakh • Vaishno Devi
+                </span>
+              </div>
+            </button>
+
+            {onOpenLogoReview && (
+              <button
+                onClick={onOpenLogoReview}
+                className={`hidden md:inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
+                  isLogoApproved
+                    ? 'bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300'
+                    : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-400 shadow-xs'
+                }`}
+                title="Preview and Inspect New Logo Concept"
               >
-                Kashmir • Ladakh • Vaishno Devi
-              </span>
-            </div>
-          </button>
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                <span>{isLogoApproved ? "Logo Active" : "Review New Logo"}</span>
+              </button>
+            )}
+          </div>
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium tracking-wide">
