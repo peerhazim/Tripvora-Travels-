@@ -1,0 +1,423 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800" width="1200" height="1200">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&amp;family=Playfair+Display:wght@700;900&amp;display=swap');
+      .font-title {
+        font-family: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;
+        font-weight: 900;
+      }
+      .font-sub {
+        font-family: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;
+        font-weight: 800;
+      }
+    </style>
+
+    <!-- Emerald Jewel Gradient -->
+    <linearGradient id="tv_emerald_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065F46" />
+      <stop offset="40%" stop-color="#047857" />
+      <stop offset="85%" stop-color="#022C22" />
+      <stop offset="100%" stop-color="#011B14" />
+    </linearGradient>
+
+    <!-- Inner Sky / Horizon Radial Gradient -->
+    <radialGradient id="tv_sky_radial" cx="50%" cy="45%" r="48%">
+      <stop offset="0%" stop-color="#0F766E" />
+      <stop offset="50%" stop-color="#065F46" />
+      <stop offset="100%" stop-color="#022C22" />
+    </radialGradient>
+
+    <!-- Kashmir Saffron Gold Gradient -->
+    <linearGradient id="tv_gold_gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="25%" stop-color="#D97706" />
+      <stop offset="60%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FEF08A" />
+    </linearGradient>
+
+    <!-- Metallic Engraved Gold Border Gradient -->
+    <linearGradient id="tv_bezel_gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="30%" stop-color="#D97706" />
+      <stop offset="65%" stop-color="#F59E0B" />
+      <stop offset="90%" stop-color="#78350F" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+
+    <!-- Snow Peak White / Ice Gradient -->
+    <linearGradient id="tv_snow_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </linearGradient>
+
+    <!-- Sun Rays Radial -->
+    <radialGradient id="tv_sun_glow" cx="50%" cy="40%" r="35%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#F59E0B" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Engraved Text Drop Shadow Filter -->
+    <filter id="tv_engrave_shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+
+    <!-- Circular Path for Upper Engraved Text "TRIPVORA TRAVELS" -->
+    <path id="tv_top_arch_path" d="M 104,400 A 296,296 0 0,1 696,400" fill="none" />
+
+    <!-- Circular Path for Lower Engraved Text "★ KASHMIR • LADAKH ★" -->
+    <path id="tv_bottom_arch_path" d="M 120,400 A 288,288 0 0,0 680,400" fill="none" />
+  </defs>
+
+  <!-- ================================================================= -->
+  <!-- 1. OUTER ENGRAVED MEDALLION BEZEL                                 -->
+  <!-- ================================================================= -->
+  <!-- Outer Gold Rim with Coin-Edge Knurling -->
+  <circle
+    cx="400"
+    cy="400"
+    r="384"
+    fill="#011B14"
+    stroke="url(#tv_bezel_gold)"
+    stroke-width="20"
+  />
+
+  <!-- Outer Bezel Ring (Engraved Band for Text) -->
+  <circle
+    cx="400"
+    cy="400"
+    r="352"
+    fill="url(#tv_emerald_gradient)"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="6.4"
+  />
+
+  <!-- Decorative Inner Bezel Ring -->
+  <circle
+    cx="400"
+    cy="400"
+    r="264"
+    fill="url(#tv_sky_radial)"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="9.6"
+  />
+
+  <!-- Dotted Heritage Filigree Accent between Rings -->
+  <circle
+    cx="400"
+    cy="400"
+    r="276"
+    fill="none"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="4"
+    stroke-dasharray="12 12"
+    opacity="0.75"
+  />
+
+  <!-- ================================================================= -->
+  <!-- 2. ENGRAVED CURVED TEXT ON MEDALLION BEZEL                        -->
+  <!-- ================================================================= -->
+  <!-- TOP ENGRAVED TEXT: "TRIPVORA TRAVELS" -->
+  <text
+    filter="url(#tv_engrave_shadow)"
+    fill="url(#tv_gold_gradient)"
+    stroke="#78350F"
+    stroke-width="2.4"
+    font-size="54"
+    class="font-title"
+    letter-spacing="14"
+    text-anchor="middle"
+  >
+    <textPath
+      href="#tv_top_arch_path"
+      xlink:href="#tv_top_arch_path"
+      startOffset="50%"
+    >
+      TRIPVORA TRAVELS
+    </textPath>
+  </text>
+
+  <!-- BOTTOM ENGRAVED TEXT: "★ KASHMIR • LADAKH ★" -->
+  <text
+    filter="url(#tv_engrave_shadow)"
+    fill="url(#tv_gold_gradient)"
+    font-size="35"
+    class="font-sub"
+    letter-spacing="11"
+    text-anchor="middle"
+    opacity="0.95"
+  >
+    <textPath
+      href="#tv_bottom_arch_path"
+      xlink:href="#tv_bottom_arch_path"
+      startOffset="50%"
+    >
+      ★ KASHMIR • LADAKH ★
+    </textPath>
+  </text>
+
+  <!-- Small Gold Stars on Left & Right Flanks -->
+  <circle cx="96" cy="400" r="11" fill="url(#tv_gold_gradient)" />
+  <circle cx="704" cy="400" r="11" fill="url(#tv_gold_gradient)" />
+
+  <!-- ================================================================= -->
+  <!-- 3. INNER ARTWORK: GONDOLA, CHINAR LEAF & SNOW MOUNTAIN PEAK      -->
+  <!-- ================================================================= -->
+  <!-- Rising Golden Sun behind Peak -->
+  <circle cx="400" cy="304" r="128" fill="url(#tv_sun_glow)" />
+  <circle cx="400" cy="304" r="68" fill="url(#tv_gold_gradient)" opacity="0.85" />
+
+  <!-- Mountain Peaks -->
+  <!-- Flanking Ridge - Left -->
+  <polygon
+    points="176,544 280,336 384,544"
+    fill="#064E3B"
+  />
+  <!-- Flanking Ridge - Right -->
+  <polygon
+    points="416,544 520,336 624,544"
+    fill="#047857"
+  />
+
+  <!-- Central Apharwat Snow Mountain Peak -->
+  <!-- Shaded Right Face -->
+  <polygon
+    points="400,208 400,544 592,544"
+    fill="#065F46"
+  />
+  <!-- Sunlit Left Face -->
+  <polygon
+    points="400,208 208,544 400,544"
+    fill="#0D9488"
+  />
+
+  <!-- Crisp Glacial Snow-Cap on the Peak -->
+  <polygon
+    points="400,208 336,312 368,296 400,336 424,304 456,328 400,208"
+    fill="url(#tv_snow_gradient)"
+    filter="drop-shadow(0px 8px 8px rgba(0,0,0,0.4))"
+  />
+  <polygon
+    points="280,336 248,392 272,376 280,400 296,376 312,392"
+    fill="url(#tv_snow_gradient)"
+  />
+  <polygon
+    points="520,336 488,392 504,376 520,400 536,376 552,392"
+    fill="url(#tv_snow_gradient)"
+  />
+
+  <!-- ____________________________________________________________- -->
+  <!-- GULMARG GONDOLA (Asia's Highest Cable Car ascending Peak)      -->
+  <!-- ____________________________________________________________- -->
+  <!-- Gondola Cable Wire stretching across the mountain -->
+  <line
+    x1="224"
+    y1="432"
+    x2="592"
+    y2="264"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="8"
+    opacity="0.9"
+  />
+
+  <!-- Gondola Cable Pylon Wheel Pulley on the wire -->
+  <circle cx="488" cy="312" r="11" fill="#FEF08A" stroke="#78350F" stroke-width="3" />
+  
+  <!-- Gondola Cabin Suspension Hanger Arm -->
+  <path
+    d="M 488,312 L 488,352 L 500,364"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
+
+  <!-- Gondola Cabin Body (Gulmarg Gold & Emerald Cabin) -->
+  <g filter="url(#tv_engrave_shadow)">
+    <!-- Cabin Outer Shell -->
+    <rect
+      x="460"
+      y="364"
+      width="80"
+      height="68"
+      rx="18"
+      fill="url(#tv_gold_gradient)"
+      stroke="#78350F"
+      stroke-width="5"
+    />
+    <!-- Panoramic Tinted Glass Window -->
+    <rect
+      x="470"
+      y="374"
+      width="60"
+      height="32"
+      rx="9"
+      fill="#022C22"
+    />
+    <!-- Window Glass Reflection Line -->
+    <path
+      d="M 476,398 L 492,378"
+      stroke="#FEF08A"
+      stroke-width="5"
+      stroke-linecap="round"
+      opacity="0.85"
+    />
+    <!-- Cabin Door Line -->
+    <line
+      x1="500"
+      y1="374"
+      x2="500"
+      y2="424"
+      stroke="#78350F"
+      stroke-width="3"
+    />
+    <!-- Cabin Under-chassis Base Accent -->
+    <rect
+      x="472"
+      y="425"
+      width="56"
+      height="6"
+      rx="3"
+      fill="#78350F"
+    />
+  </g>
+
+  <!-- ____________________________________________________________- -->
+  <!-- ROYAL KASHMIRI CHINAR LEAF (Center-Left at base of Mountain)  -->
+  <!-- ____________________________________________________________- -->
+  <g transform="translate(336, 376) scale(3.6) translate(-12, -12)">
+    <path
+      d="M12 2C11.5 2 11 2.4 10.8 3L10 4.8C9.4 4.6 8.7 4.6 8 4.9C7.2 5.2 6.5 5.8 6.1 6.6L3.8 7C3.1 7.1 2.5 7.8 2.6 8.6C2.7 9.2 3 9.7 3.5 10.1L5.3 11.3C5 12.1 5 13 5.4 13.8C5.8 14.5 6.4 15 7.2 15.2L6.7 17.5C6.5 18.3 7 19.1 7.8 19.3C8.3 19.4 8.8 19.3 9.3 19L11.2 17.7V21.5C11.2 22.1 11.7 22.5 12.2 22.5C12.8 22.5 13.2 22.1 13.2 21.5V17.7L15.2 19C15.6 19.3 16.1 19.4 16.6 19.3C17.4 19.1 17.9 18.3 17.7 17.5L17.2 15.2C18 15 18.6 14.5 19 13.8C19.4 13 19.4 12.1 19.1 11.3L20.9 10.1C21.4 9.7 21.7 9.2 21.8 8.6C21.9 7.8 21.3 7.1 20.6 7L18.3 6.6C17.9 5.8 17.2 5.2 16.4 4.9C15.7 4.6 15 4.6 14.4 4.8L13.6 3C13.4 2.4 12.9 2 12.4 2H12Z"
+      fill="url(#tv_gold_gradient)"
+      stroke="#78350F"
+      stroke-width="0.7"
+      filter="drop-shadow(0px 4px 8px rgba(0,0,0,0.6))"
+    />
+  </g>
+
+  <!-- ____________________________________________________________- -->
+  <!-- WARM HOSPITALITY & TRUST HANDSHAKE                            -->
+  <!-- ____________________________________________________________- -->
+  <g id="tv_handshake_group" filter="url(#tv_engrave_shadow)">
+    <!-- Dark background contrast plaque -->
+    <path
+      d="M 232,528 C 232,492 568,492 568,528 C 568,564 232,564 232,528 Z"
+      fill="#011B14"
+      opacity="0.88"
+    />
+    <!-- Gold Border for Handshake Plaque -->
+    <path
+      d="M 232,528 C 232,492 568,492 568,528 C 568,564 232,564 232,528 Z"
+      fill="none"
+      stroke="url(#tv_gold_gradient)"
+      stroke-width="4.8"
+      opacity="0.8"
+    />
+
+    <!-- Left Cuff (Traveler arriving in Kashmir) -->
+    <path
+      d="M 244,513.6 L 276,494.4 L 292,537.6 L 260,556.8 Z"
+      fill="#064E3B"
+      stroke="url(#tv_gold_gradient)"
+      stroke-width="4.8"
+    />
+    <line x1="260" y1="502.4" x2="276" y2="545.6" stroke="url(#tv_bezel_gold)" stroke-width="4" />
+
+    <!-- Right Cuff (Native Kashmiri Host / Tour Guide) -->
+    <path
+      d="M 556,513.6 L 524,494.4 L 508,537.6 L 540,556.8 Z"
+      fill="#064E3B"
+      stroke="url(#tv_gold_gradient)"
+      stroke-width="4.8"
+    />
+    <line x1="540" y1="502.4" x2="524" y2="545.6" stroke="url(#tv_bezel_gold)" stroke-width="4" />
+
+    <!-- Left Hand Body -->
+    <path
+      d="M 276,499.2 L 340,502.4 C 356,503.2 372,499.2 384,492 C 393.6,486.4 403.2,490.4 398.4,500 C 390.4,513.6 374.4,521.6 350.4,526.4 L 292,532.8 Z"
+      fill="url(#tv_gold_gradient)"
+      stroke="#78350F"
+      stroke-width="4"
+    />
+
+    <!-- Right Hand Body -->
+    <path
+      d="M 524,499.2 L 460,502.4 C 444,503.2 428,499.2 416,492 C 406.4,486.4 396.8,490.4 401.6,500 C 409.6,513.6 425.6,521.6 449.6,526.4 L 508,532.8 Z"
+      fill="url(#tv_gold_gradient)"
+      stroke="#78350F"
+      stroke-width="4"
+    />
+
+    <!-- Interlocked Finger Grips -->
+    <rect x="364" y="516" width="17.6" height="35.2" rx="8.8" fill="url(#tv_gold_gradient)" stroke="#78350F" stroke-width="2.8" />
+    <rect x="384" y="518.4" width="17.6" height="35.2" rx="8.8" fill="url(#tv_gold_gradient)" stroke="#78350F" stroke-width="2.8" />
+    <rect x="404" y="518.4" width="17.6" height="35.2" rx="8.8" fill="url(#tv_gold_gradient)" stroke="#78350F" stroke-width="2.8" />
+    <rect x="424" y="516" width="17.6" height="35.2" rx="8.8" fill="url(#tv_gold_gradient)" stroke="#78350F" stroke-width="2.8" />
+
+    <!-- Left Thumb curved gently over grip -->
+    <path
+      d="M 340,502.4 C 360,497.6 384,496 398.4,503.2 C 404,507.2 400,513.6 393.6,513.6 C 377.6,513.6 358.4,510.4 340,508.8 Z"
+      fill="#FEF08A"
+      stroke="#78350F"
+      stroke-width="3.2"
+    />
+  </g>
+
+  <!-- Dal Lake Shikara Crescent Hull Base -->
+  <path
+    d="M 192,536 C 288,584 512,584 608,536 C 560,592 240,592 192,536 Z"
+    fill="url(#tv_gold_gradient)"
+    stroke="#92400E"
+    stroke-width="4"
+  />
+
+  <!-- Dal Lake Water Ripples -->
+  <path
+    d="M 224,572 C 304,588 496,588 576,572"
+    stroke="url(#tv_gold_gradient)"
+    stroke-width="9.6"
+    stroke-linecap="round"
+    opacity="0.85"
+  />
+
+  <!-- ================================================================= -->
+  <!-- 4. ENGRAVED HORIZONTAL PLAQUE                                     -->
+  <!-- ================================================================= -->
+  <g filter="url(#tv_engrave_shadow)">
+    <!-- Plaque Plate Background -->
+    <rect
+      x="128"
+      y="592"
+      width="544"
+      height="88"
+      rx="24"
+      fill="#011B14"
+      stroke="url(#tv_bezel_gold)"
+      stroke-width="7.2"
+    />
+    <!-- Inner Plaque Inset -->
+    <rect
+      x="144"
+      y="604"
+      width="512"
+      height="64"
+      rx="16"
+      fill="#047857"
+      opacity="0.4"
+    />
+    <!-- Direct Engraved Text -->
+    <text
+      x="400"
+      y="654"
+      text-anchor="middle"
+      fill="#FFFFFF"
+      stroke="#78350F"
+      stroke-width="2"
+      font-size="43"
+      class="font-title"
+      letter-spacing="9.6"
+    >
+      TRIPVORA TRAVELS
+    </text>
+  </g>
+</svg>

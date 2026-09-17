@@ -466,7 +466,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg flex items-center justify-center space-x-1.5 transition-colors shadow-sm"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
-                  <span>Send to WhatsApp (7006644364)</span>
+                  <span>Send to WhatsApp (+91 7006644364)</span>
                 </a>
               </div>
 

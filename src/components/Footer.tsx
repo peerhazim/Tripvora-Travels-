@@ -69,11 +69,11 @@ export const Footer: React.FC<FooterProps> = ({
               <div>
                 <span className="text-[11px] text-stone-500 font-medium block">Direct Kashmir Helpline</span>
                 <a
-                  href="tel:7006644364"
+                  href="tel:+917006644364"
                   className="text-base font-bold text-emerald-700 hover:text-emerald-900 flex items-center space-x-1.5 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-emerald-600 animate-pulse" />
-                  <span>7006644364</span>
+                  <span>+91 7006644364</span>
                 </a>
               </div>
               <a
@@ -197,7 +197,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li className="flex items-start space-x-2">
                 <Phone className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Helpline:</strong> <a href="tel:7006644364" className="text-emerald-700 font-bold hover:underline">7006644364</a></span>
+                <span><strong>Helpline:</strong> <a href="tel:+917006644364" className="text-emerald-700 font-bold hover:underline">+91 7006644364</a></span>
               </li>
             </ul>
           </div>
@@ -251,7 +251,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
           <div>
-            © {new Date().getFullYear()} TripVora Travels. Kashmir Based Tour Operator (Regd. J&amp;K Tourism). All queries routed to peerhazim98@gmail.com &amp; 7006644364.
+            © {new Date().getFullYear()} TripVora Travels. Kashmir Based Tour Operator (Regd. J&amp;K Tourism). All queries routed to peerhazim98@gmail.com &amp; +91 7006644364.
           </div>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <button onClick={() => onNavigateTo('contact')} className="hover:text-emerald-700 font-medium cursor-pointer">
@@ -266,8 +266,8 @@ export const Footer: React.FC<FooterProps> = ({
             <button onClick={() => onOpenAdmin && onOpenAdmin()} className="hover:text-emerald-700 font-medium cursor-pointer">
               Admin Portal
             </button>
-            <a href="tel:7006644364" className="text-emerald-700 font-bold hover:underline">
-              Call: 7006644364
+            <a href="tel:+917006644364" className="text-emerald-700 font-bold hover:underline">
+              Call: +91 7006644364
             </a>
           </div>
         </div>

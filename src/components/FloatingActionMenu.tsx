@@ -323,7 +323,7 @@ export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPl
                       className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md transition-all cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4 fill-white" />
-                      <span>Chat on WhatsApp Now (7006644364)</span>
+                      <span>Chat on WhatsApp Now (+91 7006644364)</span>
                     </a>
                     <button
                       type="button"
@@ -354,7 +354,7 @@ export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPl
               <div className="text-xs text-stone-700 space-y-1.5 bg-stone-50 p-3 rounded-xl border border-stone-200">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-stone-600">Helpline:</span>
-                  <a href="tel:7006644364" className="font-bold text-emerald-800 hover:underline">+91 7006644364</a>
+                  <a href="tel:+917006644364" className="font-bold text-emerald-800 hover:underline">+91 7006644364</a>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-stone-600">Hours:</span>
@@ -377,7 +377,7 @@ export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPl
                 className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center space-x-2 transition-all cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
-                <span>Open WhatsApp Chat (7006644364)</span>
+                <span>Open WhatsApp Chat (+91 7006644364)</span>
                 <ExternalLink className="w-3.5 h-3.5 ml-1" />
               </a>
             </div>
@@ -480,11 +480,11 @@ export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPl
               </div>
 
               <a
-                href="tel:7006644364"
+                href="tel:+917006644364"
                 className="w-full py-2.5 px-4 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center space-x-2 transition-colors cursor-pointer"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Srinagar Desk: 7006644364</span>
+                <span>Call Srinagar Desk: +91 7006644364</span>
               </a>
             </div>
           )}
@@ -528,13 +528,13 @@ export const FloatingActionMenu: React.FC<FloatingActionMenuProps> = ({ onOpenPl
                 ? 'bg-[#1fa950] text-white shadow-md scale-105' 
                 : 'bg-[#25D366] hover:bg-[#20ba59] text-white shadow-md hover:scale-105'
             }`}
-            title="Chat on WhatsApp (7006644364)"
+            title="Chat on WhatsApp (+91 7006644364)"
             aria-label="WhatsApp Hotline"
           >
             <MessageSquare className="w-5 h-5 fill-white" />
           </button>
           <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block whitespace-nowrap bg-stone-900 text-white text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-lg pointer-events-none">
-            💬 WhatsApp (7006644364)
+            💬 WhatsApp (+91 7006644364)
           </div>
         </div>
 

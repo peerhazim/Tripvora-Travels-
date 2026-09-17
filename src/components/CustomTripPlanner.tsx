@@ -130,7 +130,7 @@ export const CustomTripPlanner: React.FC<CustomTripPlannerProps> = ({
             Design Your <span className="text-emerald-700 italic font-normal">Kashmir, Ladakh or Katra Package</span>
           </h2>
           <p className="mt-4 text-stone-600 text-sm sm:text-base leading-relaxed">
-            Customize your holiday with our native Kashmir travel specialists. Instant cost estimation with transparent inclusions, private vehicle options, and direct booking support on <strong className="text-emerald-800">7006644364</strong>.
+            Customize your holiday with our native Kashmir travel specialists. Instant cost estimation with transparent inclusions, private vehicle options, and direct booking support on <strong className="text-emerald-800">+91 7006644364</strong>.
           </p>
         </div>
 
@@ -328,7 +328,7 @@ export const CustomTripPlanner: React.FC<CustomTripPlannerProps> = ({
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Direct on-ground trip manager support (Call: 7006644364)</span>
+                <span>Direct on-ground trip manager support (Call: +91 7006644364)</span>
               </div>
             </div>
 
@@ -340,7 +340,7 @@ export const CustomTripPlanner: React.FC<CustomTripPlannerProps> = ({
               className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center space-x-2"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>WhatsApp Details to 7006644364</span>
+              <span>WhatsApp Details to +91 7006644364</span>
             </a>
 
             {/* Request Blueprint Form */}
@@ -398,7 +398,7 @@ export const CustomTripPlanner: React.FC<CustomTripPlannerProps> = ({
                 </div>
                 <h4 className="font-serif-display text-lg font-bold text-stone-900">Proposal Dispatched! (Ref: {submittedRef})</h4>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Thank you, <strong>{name}</strong>. Your customized holiday plan for <strong>{destObj.label}</strong> has been sent to <strong>peerhazim98@gmail.com</strong>. We will call you on <strong>{phone}</strong> shortly. You can also reach us directly at <strong>7006644364</strong>.
+                  Thank you, <strong>{name}</strong>. Your customized holiday plan for <strong>{destObj.label}</strong> has been sent to <strong>peerhazim98@gmail.com</strong>. We will call you on <strong>{phone}</strong> shortly. You can also reach us directly at <strong>+91 7006644364</strong>.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}

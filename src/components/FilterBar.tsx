@@ -45,7 +45,9 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             let label: string = region;
             if (region === 'All') label = 'All Packages';
             else if (region === 'Kashmir') label = '★ Normal Kashmir Packages (Main Highlight)';
+            else if (region === 'Ladakh') label = '🏔️ Ladakh Packages';
             else if (region === 'Vaishno Devi Katra') label = '🛕 Katra Packages (Held Under Kashmir)';
+            else if (region === 'Combo Circuits') label = '✨ Grand Combo Circuits';
 
             return (
               <button
@@ -57,6 +59,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                     ? 'bg-emerald-700 text-white shadow-md ring-2 ring-emerald-500/50'
                     : region === 'Kashmir'
                     ? 'bg-amber-100/80 text-amber-950 hover:bg-amber-200/90 border border-amber-300'
+                    : region === 'Ladakh'
+                    ? 'bg-sky-50 text-sky-950 hover:bg-sky-100 border border-sky-200'
                     : 'bg-stone-100 text-stone-700 hover:bg-emerald-50 hover:text-emerald-900'
                 }`}
               >

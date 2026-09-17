@@ -291,11 +291,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenConsultation }) =>
                         Need tailored guidance? Native team at:
                       </span>
                       <a
-                        href="tel:7006644364"
+                        href="tel:+917006644364"
                         className="inline-flex items-center space-x-1 font-bold underline hover:opacity-80"
                       >
                         <Phone className="w-3 h-3" />
-                        <span>Call 7006644364</span>
+                        <span>Call +91 7006644364</span>
                       </a>
                     </div>
                   </div>
@@ -324,11 +324,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenConsultation }) =>
           <div className="flex items-center space-x-3">
             <a
               id="faq-helpline-call-btn"
-              href="tel:7006644364"
+              href="tel:+917006644364"
               className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center space-x-2"
             >
               <Phone className="w-4 h-4" />
-              <span>7006644364</span>
+              <span>+91 7006644364</span>
             </a>
             {onOpenConsultation && (
               <button

@@ -55,12 +55,52 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-3 text-stone-900'
-          : 'bg-white/90 backdrop-blur-sm py-3.5 text-stone-900 shadow-xs'
+          ? 'bg-white/95 backdrop-blur-md shadow-md text-stone-900'
+          : 'bg-white/95 backdrop-blur-sm text-stone-900 shadow-xs'
       }`}
       style={{ borderBottom: `1px solid var(--theme-primary-border)` }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Top Direct Contact Bar */}
+      <div 
+        className="hidden sm:block text-[11px] py-1 border-b"
+        style={{ 
+          backgroundColor: 'var(--theme-primary-dark)', 
+          color: '#ffffff',
+          borderColor: 'rgba(255, 255, 255, 0.15)'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <span className="flex items-center space-x-1 font-medium text-stone-200">
+              <Sparkles className="w-3 h-3 text-amber-300" />
+              <span>Srinagar HQ, Sopore, Kashmir • Native Tour Operator (Govt. Regd.)</span>
+            </span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <a 
+              href="tel:+917006644364" 
+              className="flex items-center space-x-1 font-bold text-amber-300 hover:text-white transition-colors"
+              title="Call TripVora Travels Contact Number"
+            >
+              <Phone className="w-3 h-3 text-amber-400" />
+              <span>Contact: +91 7006644364</span>
+            </a>
+            <span className="text-white/40">|</span>
+            <a 
+              href="https://wa.me/917006644364?text=Hi%20TripVora%20Travels,%20I%20am%20interested%20in%20a%20tour%20package"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center space-x-1 font-bold text-emerald-300 hover:text-white transition-colors"
+              title="Chat on WhatsApp"
+            >
+              <MessageSquare className="w-3 h-3 text-emerald-400" />
+              <span>WhatsApp: +91 7006644364</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo with Kashmir Theme Emblem */}
@@ -134,6 +174,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Kashmir, Ladakh &amp; Katra Packages</span>
             </button>
             <button
+              id="nav-link-destinations"
+              onClick={() => handleNavClick('kashmir-destinations')}
+              className="text-stone-700 hover:text-stone-900 transition-colors focus:outline-none cursor-pointer font-medium hover:underline decoration-2 flex items-center space-x-1"
+              style={{ textUnderlineOffset: '6px', textDecorationColor: 'var(--theme-primary)' }}
+            >
+              <span>Top Destinations</span>
+            </button>
+            <button
+              id="nav-link-seasons"
+              onClick={() => handleNavClick('kashmir-seasons')}
+              className="text-stone-700 hover:text-stone-900 transition-colors focus:outline-none cursor-pointer font-medium hover:underline decoration-2 flex items-center space-x-1"
+              style={{ textUnderlineOffset: '6px', textDecorationColor: 'var(--theme-primary)' }}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Best Seasons</span>
+            </button>
+            <button
               id="nav-link-planner"
               onClick={() => handleNavClick('custom-planner')}
               className="text-stone-700 hover:text-stone-900 transition-colors focus:outline-none cursor-pointer font-medium hover:underline decoration-2"
@@ -183,17 +240,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Direct Phone Helpline */}
             <a
               id="nav-phone-call-btn"
-              href="tel:7006644364"
+              href="tel:+917006644364"
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full transition-all text-xs font-bold shadow-xs cursor-pointer"
               style={{
                 backgroundColor: 'var(--theme-primary-light)',
                 border: '1px solid var(--theme-primary-border)',
                 color: 'var(--theme-primary-dark)',
               }}
-              title="Call TripVora Travels Kashmir Helpline"
+              title="Call TripVora Travels Kashmir Helpline: +91 7006644364"
             >
               <Phone className="w-3.5 h-3.5 animate-pulse" style={{ color: 'var(--theme-primary)' }} />
-              <span>7006644364</span>
+              <span>+91 7006644364</span>
             </a>
 
             {/* Currency Selector */}
@@ -276,16 +333,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <KashmirThemeSelector compact />
             
             <a
-              href="tel:7006644364"
+              href="tel:+917006644364"
               className="flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-bold"
               style={{
                 backgroundColor: 'var(--theme-primary-light)',
                 color: 'var(--theme-primary-dark)',
                 border: '1px solid var(--theme-primary-border)',
               }}
+              title="Call +91 7006644364"
             >
               <Phone className="w-3 h-3" style={{ color: 'var(--theme-primary)' }} />
-              <span>7006644364</span>
+              <span>+91 7006644364</span>
             </a>
             <button
               id="mobile-admin-btn"
@@ -323,7 +381,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   style={{ color: 'var(--theme-primary-dark)' }}
                 >
                   <Phone className="w-3.5 h-3.5" style={{ color: 'var(--theme-primary)' }} />
-                  <a href="tel:7006644364">7006644364</a>
+                  <a href="tel:+917006644364">+91 7006644364</a>
                 </div>
               </div>
               <a
@@ -377,6 +435,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 ★ Featured
               </span>
+            </button>
+            <button
+              onClick={() => handleNavClick('kashmir-destinations')}
+              className="block w-full text-left py-2 px-3 rounded text-stone-800 hover:bg-stone-100 font-semibold flex items-center space-x-2"
+            >
+              <span>🏔️</span>
+              <span>Top Kashmir Destinations</span>
+            </button>
+            <button
+              onClick={() => handleNavClick('kashmir-seasons')}
+              className="block w-full text-left py-2 px-3 rounded text-stone-800 hover:bg-stone-100 font-semibold flex items-center space-x-2"
+            >
+              <span>🌸</span>
+              <span>Best Seasons to Visit</span>
             </button>
             <button
               onClick={() => handleNavClick('custom-planner')}

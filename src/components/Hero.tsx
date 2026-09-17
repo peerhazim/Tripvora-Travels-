@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Compass, Search, Calendar, MapPin, Users, Sparkles, Award, ShieldCheck, 
-  Phone, MessageSquare, Send, CheckCircle2, Car, Clock, ArrowRight, Hotel, Heart 
+  Phone, MessageSquare, Send, CheckCircle2, Car, Clock, ArrowRight, Hotel, Heart,
+  ChevronLeft, ChevronRight, Pause, Play, Camera
 } from 'lucide-react';
 import { Region, TravelStyle } from '../types';
 import { ChinarLeafIcon } from './ChinarLeafIcon';
@@ -18,6 +19,40 @@ interface HeroProps {
   onOpenPlanner: () => void;
 }
 
+// 3 Curated Iconic Kashmir Hero Slides (Rotating every 3 seconds)
+const KASHMIR_HERO_SLIDES = [
+  {
+    id: 'dal-lake-shikara',
+    destination: 'Dal Lake & Shikara Sunset',
+    subLocation: 'Srinagar • 5,200 ft',
+    description: 'Serene Handcrafted Cedar Shikaras Cruising across Misty Himalayan Waters',
+    localImage: '/images/dal-lake-shikara-hero.jpg',
+    onlineFallback: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=2400&auto=format&fit=crop',
+    alt: 'Dal Lake in Srinagar with traditional carved wooden Shikara boat under the sunset against the Himalayas',
+    highlightBadge: '🚣 Dal Lake Shikara Sunset',
+  },
+  {
+    id: 'sonamarg-valley',
+    destination: 'Sonamarg • Meadow of Gold',
+    subLocation: 'Ganderbal • 9,000 ft',
+    description: 'Pristine Glacial Valleys, Sindh River Rapids & Alpine Pine Forests',
+    localImage: '/images/sonamarg-valley-hero.jpg',
+    onlineFallback: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=2400&auto=format&fit=crop',
+    alt: 'Sonamarg Meadow of Gold with Sindh river valley, green meadows, and snow-capped Himalayan ridges',
+    highlightBadge: '🏔️ Sonamarg Glacial Valley',
+  },
+  {
+    id: 'gulmarg-gondola',
+    destination: 'Gulmarg Gondola & Apharwat Peak',
+    subLocation: 'Baramulla • 13,780 ft',
+    description: "Asia's Highest Cable Car ascending Snow-Clad Himalayan Summits",
+    localImage: '/images/gulmarg-gondola-cable-car.jpg',
+    onlineFallback: 'https://images.unsplash.com/photo-1566837945084-3159810a8db8?q=80&w=2400&auto=format&fit=crop',
+    alt: 'Gulmarg Gondola cable car ascending snowy Himalayan slopes towards Mount Apharwat Peak',
+    highlightBadge: '🚠 Gulmarg Gondola (Phase 1 & 2)',
+  },
+];
+
 export const Hero: React.FC<HeroProps> = ({
   selectedRegion,
   onRegionChange,
@@ -28,6 +63,26 @@ export const Hero: React.FC<HeroProps> = ({
   onSearchSubmit,
   onOpenPlanner,
 }) => {
+  // 3-Second Auto-Rotating Kashmir Slideshow State
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isSlidePaused, setIsSlidePaused] = useState(false);
+
+  useEffect(() => {
+    if (isSlidePaused) return;
+    const interval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % KASHMIR_HERO_SLIDES.length);
+    }, 3000); // 3 seconds per image transition as requested
+
+    return () => clearInterval(interval);
+  }, [isSlidePaused]);
+
+  const nextSlide = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % KASHMIR_HERO_SLIDES.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + KASHMIR_HERO_SLIDES.length) % KASHMIR_HERO_SLIDES.length);
+  };
   // Hero Form Filling State
   const [heroName, setHeroName] = useState('');
   const [heroPhone, setHeroPhone] = useState('');
@@ -144,23 +199,105 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-emerald-950">
-      {/* Background Image: Iconic Dal Lake with Traditional Shikara and Himalayan Mountains */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=2400&auto=format&fit=crop"
-          alt="Dal Lake Kashmir with traditional carved wooden Shikara boat and misty Himalayas"
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center scale-100 filter brightness-90 contrast-105"
-        />
-        {/* Artistic, rich gradient layers integrating Dal Lake into the page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-stone-900/30 to-emerald-950/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/70 via-transparent to-stone-950/60" />
+      {/* Dynamic 3-Second Crossfading Kashmir Slideshow Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {KASHMIR_HERO_SLIDES.map((slide, index) => {
+          const isActive = index === currentSlideIndex;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
+                isActive 
+                  ? 'opacity-100 scale-100 z-1' 
+                  : 'opacity-0 scale-105 pointer-events-none z-0'
+              }`}
+            >
+              <img
+                src={slide.localImage}
+                onError={(e) => {
+                  // Online fallback if local path fails
+                  const target = e.target as HTMLImageElement;
+                  if (target.src !== slide.onlineFallback) {
+                    target.src = slide.onlineFallback;
+                  }
+                }}
+                alt={slide.alt}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-105"
+              />
+            </div>
+          );
+        })}
+
+        {/* Cinematic Kashmiri Vignette & Gradient Overlays for optimal readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 via-stone-900/35 to-emerald-950/90 z-2" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/75 via-transparent to-stone-950/65 z-2" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2">
         
-        {/* Top Hotline & Location Badge */}
-        <div className="flex justify-center mb-6">
+        {/* Top Floating Bar: Live 3-Second Slideshow Controller & Direct Hotline */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
+          
+          {/* 3-Second Slideshow Indicator & Navigation */}
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-stone-900/85 backdrop-blur-md border border-white/20 text-white text-xs shadow-lg">
+            <div className="flex items-center space-x-1.5 text-amber-300 font-semibold text-[11px]">
+              <Camera className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+              <span>{KASHMIR_HERO_SLIDES[currentSlideIndex].highlightBadge}</span>
+            </div>
+
+            <span className="text-white/30 hidden sm:inline">|</span>
+
+            {/* 3 Segmented Timer Dots */}
+            <div className="flex items-center space-x-1.5">
+              {KASHMIR_HERO_SLIDES.map((slide, idx) => {
+                const isActive = idx === currentSlideIndex;
+                return (
+                  <button
+                    key={slide.id}
+                    onClick={() => setCurrentSlideIndex(idx)}
+                    title={`View ${slide.destination}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      isActive 
+                        ? 'w-6 bg-gradient-to-r from-amber-400 to-amber-200' 
+                        : 'w-2 bg-white/40 hover:bg-white/70'
+                    }`}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Slide Navigation & Pause/Play */}
+            <div className="flex items-center space-x-1 pl-1 border-l border-white/20">
+              <button
+                onClick={prevSlide}
+                title="Previous scenic photo"
+                className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/80 hover:text-white cursor-pointer"
+              >
+                <ChevronLeft className="w-3 h-3" />
+              </button>
+              <button
+                onClick={() => setIsSlidePaused(!isSlidePaused)}
+                title={isSlidePaused ? "Resume 3s auto-play" : "Pause on this photo"}
+                className="p-1 hover:bg-white/10 rounded-full transition-colors text-amber-300 hover:text-amber-200 cursor-pointer"
+              >
+                {isSlidePaused ? <Play className="w-3 h-3" /> : <Pause className="w-3 h-3" />}
+              </button>
+              <button
+                onClick={nextSlide}
+                title="Next scenic photo"
+                className="p-1 hover:bg-white/10 rounded-full transition-colors text-white/80 hover:text-white cursor-pointer"
+              >
+                <ChevronRight className="w-3 h-3" />
+              </button>
+            </div>
+
+            <span className="text-[10px] text-white/60 hidden md:inline">
+              {isSlidePaused ? '(Paused)' : 'Rotating every 3s'}
+            </span>
+          </div>
+
+          {/* Top Hotline & Location Badge */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full bg-white/95 border border-emerald-300 text-xs font-semibold tracking-wider shadow-md backdrop-blur-md">
             <span className="text-emerald-800 flex items-center space-x-1.5">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
@@ -168,11 +305,11 @@ export const Hero: React.FC<HeroProps> = ({
             </span>
             <span className="text-stone-300 hidden sm:inline">|</span>
             <a
-              href="tel:7006644364"
+              href="tel:+917006644364"
               className="text-emerald-700 hover:text-emerald-900 flex items-center space-x-1 font-bold transition-colors"
             >
               <Phone className="w-3 h-3 text-emerald-600 animate-pulse" />
-              <span>Helpline: 7006644364</span>
+              <span>Contact: +91 7006644364</span>
             </a>
             <span className="text-stone-300 hidden sm:inline">|</span>
             <a
@@ -182,7 +319,7 @@ export const Hero: React.FC<HeroProps> = ({
               className="text-emerald-700 hover:text-emerald-900 flex items-center space-x-1 underline decoration-emerald-500/50 font-bold"
             >
               <MessageSquare className="w-3 h-3 text-emerald-600" />
-              <span>WhatsApp Chat</span>
+              <span>WhatsApp: +91 7006644364</span>
             </a>
           </div>
         </div>
@@ -212,7 +349,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             <p className="text-stone-100 text-sm sm:text-base font-normal leading-relaxed max-w-xl drop-shadow-sm">
-              Native Srinagar travel company providing handpicked Dal Lake heritage houseboats, private sanitized cabs, Gulmarg Gondola Phase 1 &amp; 2 passes, and sacred Mata Vaishno Devi yatras with 24/7 on-ground assistance at <strong className="font-bold" style={{ color: 'var(--theme-accent)' }}>7006644364</strong>.
+              Native Srinagar travel company providing handpicked Dal Lake heritage houseboats, private sanitized cabs, Gulmarg Gondola Phase 1 &amp; 2 passes, and sacred Mata Vaishno Devi yatras with 24/7 on-ground assistance at <strong className="font-bold" style={{ color: 'var(--theme-accent)' }}>+91 7006644364</strong>.
             </p>
 
             {/* Quick Feature Grid */}
@@ -234,11 +371,11 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Quick Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href="tel:7006644364"
+                href="tel:+917006644364"
                 className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-stone-950 font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-emerald-500/30 transition-all flex items-center space-x-2 cursor-pointer"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Hotline: 7006644364</span>
+                <span>Call Hotline: +91 7006644364</span>
               </a>
               <button
                 onClick={onOpenPlanner}
@@ -566,7 +703,7 @@ export const Hero: React.FC<HeroProps> = ({
                       className="inline-flex items-center justify-center space-x-1.5 w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-sm transition-colors"
                     >
                       <MessageSquare className="w-4 h-4 fill-white" />
-                      <span>Send to WhatsApp (7006644364)</span>
+                      <span>Send to WhatsApp (+91 7006644364)</span>
                     </a>
                   </div>
 

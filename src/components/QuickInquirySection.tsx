@@ -109,7 +109,7 @@ export const QuickInquirySection: React.FC<QuickInquirySectionProps> = () => {
             <div className="space-y-3 pt-2">
               {/* Phone Helpline */}
               <a
-                href="tel:7006644364"
+                href="tel:+917006644364"
                 className="p-4 rounded-xl bg-white border border-emerald-200 hover:border-emerald-500 flex items-center justify-between transition-all group shadow-sm"
               >
                 <div className="flex items-center space-x-3.5">
@@ -118,7 +118,7 @@ export const QuickInquirySection: React.FC<QuickInquirySectionProps> = () => {
                   </div>
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-stone-500 font-bold block">Direct Kashmir Helpline</span>
-                    <span className="text-base font-bold text-stone-900 group-hover:text-emerald-700 transition-colors">7006644364</span>
+                    <span className="text-base font-bold text-stone-900 group-hover:text-emerald-700 transition-colors">+91 7006644364</span>
                   </div>
                 </div>
                 <span className="text-xs text-emerald-700 font-bold uppercase tracking-wider">Call Now →</span>
@@ -416,7 +416,7 @@ export const QuickInquirySection: React.FC<QuickInquirySectionProps> = () => {
 
                     <div className="flex items-center justify-center space-x-2 text-[11px] text-stone-500 font-medium">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Zero booking fee. Dispatched to peerhazim98@gmail.com &amp; WhatsApp 7006644364</span>
+                      <span>Zero booking fee. Dispatched to peerhazim98@gmail.com &amp; WhatsApp +91 7006644364</span>
                     </div>
                   </form>
                 </div>
@@ -451,7 +451,7 @@ export const QuickInquirySection: React.FC<QuickInquirySectionProps> = () => {
                       className="inline-flex items-center justify-center space-x-2 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-md transition-colors"
                     >
                       <MessageSquare className="w-4 h-4 fill-white" />
-                      <span>Chat on WhatsApp (7006644364)</span>
+                      <span>Chat on WhatsApp (+91 7006644364)</span>
                     </a>
                   </div>
 

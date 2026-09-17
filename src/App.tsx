@@ -10,6 +10,8 @@ import { BookingModal } from './components/BookingModal';
 import { CustomTripPlanner } from './components/CustomTripPlanner';
 import { WishlistDrawer } from './components/WishlistDrawer';
 import { WhyUs } from './components/WhyUs';
+import { TopKashmirDestinations } from './components/TopKashmirDestinations';
+import { BestSeasonsToVisit } from './components/BestSeasonsToVisit';
 import { ReviewsSection } from './components/ReviewsSection';
 import { FAQSection } from './components/FAQSection';
 import { QuickInquirySection } from './components/QuickInquirySection';
@@ -261,11 +263,11 @@ function TripVoraContent() {
             <p className="mt-4 text-stone-700 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-medium">
               Handcrafted all-inclusive itineraries featuring dedicated sanitized private cabs, heritage Dal Lake houseboats, Gulmarg Gondola Phase 1 &amp; 2 passes, high-altitude Ladakh mountain passes, and Mata Vaishno Devi Katra yatra support. Direct native on-ground assistance at{' '}
               <a 
-                href="tel:7006644364" 
+                href="tel:+917006644364" 
                 className="font-bold underline hover:opacity-80 transition-opacity" 
                 style={{ color: 'var(--theme-primary)' }}
               >
-                7006644364
+                +91 7006644364
               </a>.
             </p>
 
@@ -444,8 +446,8 @@ function TripVoraContent() {
                             </ul>
                             <div className="pt-1 border-t border-stone-100 text-[11px] text-stone-600">
                               Katra Helpdesk:{' '}
-                              <a href="tel:7006644364" className="font-bold text-amber-700 hover:underline">
-                                7006644364
+                              <a href="tel:+917006644364" className="font-bold text-amber-700 hover:underline">
+                                +91 7006644364
                               </a>
                             </div>
                           </div>
@@ -608,8 +610,46 @@ function TripVoraContent() {
                 </div>
               )}
 
-              {/* Scenario 4: Other specific regions (Ladakh or Combo Circuits) */}
-              {(selectedRegion === 'Ladakh' || selectedRegion === 'Combo Circuits') && (
+              {/* Scenario 4: Explicitly Selected Ladakh Packages */}
+              {selectedRegion === 'Ladakh' && (
+                <div>
+                  <div className="mb-8 p-6 sm:p-7 rounded-2xl border-2 border-sky-300 bg-gradient-to-r from-sky-50 via-blue-50/60 to-indigo-50/40 shadow-md">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-sky-700 text-white shadow-xs mb-2">
+                          <span>🏔️ LAND OF HIGH PASSES • LADAKH EXPEDITIONS</span>
+                        </div>
+                        <h3 className="text-2xl sm:text-3xl font-serif-display font-black text-stone-900 tracking-tight">
+                          Ladakh Himalayan Circuit Packages
+                        </h3>
+                        <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-2xl font-medium">
+                          Pangong Tso Blue Waters • Nubra Valley Hunder Dunes • Khardung La Pass (18,380 ft) • Hanle Dark Sky Reserve • Tso Moriri Lake • Zanskar Valley 4x4
+                        </p>
+                      </div>
+                      <div className="flex items-center space-x-2 text-xs font-bold text-sky-900 bg-white/95 border border-sky-300 px-4 py-2.5 rounded-xl shrink-0 self-start sm:self-auto shadow-2xs">
+                        <span>{filteredTours.length} Ladakh Packages</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredTours.map((tour) => (
+                      <TourCard
+                        key={tour.id}
+                        tour={tour}
+                        currentCurrency={currency}
+                        isWishlisted={wishlist.includes(tour.id)}
+                        onToggleWishlist={toggleWishlist}
+                        onSelectTour={(t) => setActiveTourDetail(t)}
+                        onBookTour={(t) => setBookingModalState({ tour: t })}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Scenario 5: Combo Circuits */}
+              {selectedRegion === 'Combo Circuits' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredTours.map((tour) => (
                     <TourCard
@@ -652,6 +692,21 @@ function TripVoraContent() {
             </div>
           )}
         </section>
+
+        {/* Dedicated Section 1: Top Kashmir Destinations */}
+        <TopKashmirDestinations
+          onSelectDestination={(keyword) => {
+            setSearchQuery(keyword);
+            setSelectedRegion('All');
+            scrollToSection('tours-catalog');
+          }}
+          onOpenPlanner={() => scrollToSection('custom-planner')}
+        />
+
+        {/* Dedicated Section 2: Best Seasons to Visit Kashmir */}
+        <BestSeasonsToVisit
+          onOpenPlanner={() => scrollToSection('custom-planner')}
+        />
 
         {/* Custom Tailor-Made Itinerary Builder */}
         <CustomTripPlanner
